@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One8 Commune - Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+               
+                <span style="color: white; font-size: 1.5rem; font-weight: bold;">One8 Commune</span>
+                 <!-- <img src="./jjj.jpeg" width="50px"height="50px" alt=""> -->
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')">Home</a></li>
+                <li><a href="#" onclick="showPage('menu')">Menu</a></li>
+                <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                <li><a href="#" onclick="showPage('booking')" class="book-btn">Book Table</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <div>
+                <h1>Welcome to One8 Commune</h1>
+                <p>Experience fine dining with passion for good food, great people, and glorious times</p>
+            </div>
+        </div>
+        <div class="container">
+            <h2 style="text-align: center; color: #61330e; margin-bottom: 2rem;">Why Choose Us</h2>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <i class="fas fa-utensils" style="font-size: 2rem; color: #ff8c00;"></i>
+                    <h3>Exquisite Cuisine</h3>
+                    <p>Savor dishes crafted by our expert chefs using the finest ingredients</p>
+                </div>
+                <div class="menu-card">
+                    <i class="fas fa-wine-glass-alt" style="font-size: 2rem; color: #ff8c00;"></i>
+                    <h3>Premium Drinks</h3>
+                    <p>Enjoy our curated selection of signature cocktails and fine wines</p>
+                </div>
+                <div class="menu-card">
+                    <i class="fas fa-star" style="font-size: 2rem; color: #ff8c00;"></i>
+                    <h3>Elegant Ambiance</h3>
+                    <p>Dine in style with our sophisticated and welcoming atmosphere</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Menu Page -->
+    <div id="menu" class="page">
+        <div class="hero" style="height: 300px;">
+            <h1>Our Menu</h1>
+        </div>
+        <div class="container">
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <h3><i class="fas fa-pizza-slice"></i> Food</h3>
+                    <ul>
+                        <b>Small Plates</b>
+                        <li>Avocado Flatbread</li>
+                        <li>Byadagi Chilli Paneer</li>
+                        <b>Sushi</b>
+                        <li>Veg Tempura Sushi</li>
+                        <li>Prawns Tempura Sushi</li>
+                        <b>Pizza</b>
+                        <li>Confit Garlic Cherry Tomato</li>
+                        <li>Chicken Alfredo</li>
+                        <b>Dessert</b>
+                        <li>Dolce Chocolate</li>
+                        <li>Strawberry</li>
+                        <li>Matcha</li>
+                    </ul>
+                </div>
+                <div class="menu-card">
+                    <h3><i class="fas fa-cocktail"></i> Drinks</h3>
+                    <ul>
+                        <b>Signature Cocktails</b>
+                        <li>Chocolate Blanc Punch</li>
+                        <li>Deconstructed Picante</li>
+                        <b>Premium Spirits</b>
+                        <li>Fine Wines</li>
+                        <li>Single Malt Whiskey</li>
+                        <li>Premium Rums</li>
+                        <li>Blended Selections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Page -->
+    <div id="booking" class="page">
+        <div class="hero" style="height: 300px;">
+            <h1>Book Your Table</h1>
+        </div>
+        <div class="container">
+            <div class="booking-form">
+                <h2>Reserve a Table</h2>
+                <form onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" required maxlength="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact Number</label>
+                        <input type="tel" id="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select id="location" required>
+                            <option value="" disabled selected>Choose Location</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="bangalore">Bangalore</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Number of Guests</label>
+                        <select id="guests" required>
+                            <option value="" disabled selected>Select guests</option>
+                            <option value="1">1 Person</option>
+                            <option value="2">2 People</option>
+                            <option value="3">3 People</option>
+                            <option value="4">4 People</option>
+                            <option value="5+">5+ People</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Reservation Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Book Table</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Page -->
+    <div id="gallery" class="page">
+    <div class="hero" style="height: 300px;">
+         <h1>Gallery</h1>
+        </div>
+        <div class="container">
+            <div class="gallery-grid">
+                <div class="container">
+      <img src="./j1.jpg"      alt="hotel"  width="260px" height="250px">
+      <p>one8 Commune , Juhu, Mumbai</p>
+        </div>
+        <div class="container">
+      <img src="./gg.jpg" alt=""  width="260px" height="250px">
+      <p>one8 Commune , Indore</p>
+      </div>
+    
+      <div class="container">
+      <img src="./gg1.jpg" alt=""  width="260px" height="250px">
+      <p>one8 Commune , Gurgaon</p>
+      </div>
+
+      <div class="container">
+      <img src="./pr3.jpeg" alt=""  width="260px" height="250px">
+      <p>one8 Commune , Gurgaon</p>
+      </div>
+
+      <div class="container">
+      <img src="./pr4.jpeg" alt=""  width="260px" height="250px">
+      <p>one8 Commune , Gurgaon</p>
+      </div>
+
+      <div  class="container">
+      <img src="./vk2.jpg" alt=""  width="260px" height="250px">
+      <p>one8 Commune , Banglore</p>
+      </div>
+      <div  class="container">
+      <img src="./vk3.jpg" alt="" width="260px"height="250px">
+        <p>one8 Commune , Jaypur</p>
+         </div>
+        <div class="container">
+       <img src="./vk4.jpg" alt="" width="260px " height="250px">
+      <p>one8 Commune , Lower Parel,Mumbai</p>
+       </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <div class="hero" style="height: 300px;">
+            <h1>Contact Us</h1>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>About Us</h3>
+                    <p>We are fuelled by our passion for good food, great people and a glorious time. Head over to the liveliest commune in the city.</p>
+                    <p style="margin-top: 1rem;">One8 Commune is a part of <strong>FOURLEAF CAFE & RESTAURANTS PRIVATE LIMITED</strong></p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Address</h3>
+                    <p><strong>FOURLEAF CAFE & RESTAURANTS PRIVATE LIMITED</strong></p>
+                    <p>GST: 27AAECF8881H1Z6</p>
+                    <p>Ground floor, Gauri Kunj, Kalakar Kishorkumar Ganguli Marg, Juhu Tara Road, Mumbai City, Maharashtra, 400049</p>
+                </div>
+                <div>
+                    <h3>Contact</h3>
+                    <p>Instagram: <a href="https://www.instagram.com/one8.commune/?hl=en" style="color: #ff8c00;">one8.commune</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/9021604342" style="color: #ff8c00;">+91 9021604342</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© One8 Commune 2025. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="script.js"></script>
+    </body>
+</html>
